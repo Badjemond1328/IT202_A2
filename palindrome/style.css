@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  background: #707070;
+  color: white;
+  margin: 0; 
+  padding: 100px; 
+  place-items: center;
+}
+
+h1 { margin-top: 0; }
+
+form { 
+  display: grid; 
+  gap: .75rem; 
+  margin-bottom: 1rem; 
+}
+input, button {
+  padding: .75rem .9rem; 
+  border-radius: 10px; 
+  border: 3px solid #d9dbe3;
+}
+button { 
+  border: none; 
+  background: #3b82f6; 
+  color: #fff; 
+  cursor: pointer; 
+}
+button:hover { filter: brightness(.95); }
+#result { text-align: center; }
