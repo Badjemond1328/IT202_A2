@@ -1,4 +1,21 @@
 
+function calculateTip(a,b){
+  let tip = a * (b/100);
+  let res =  a + tip;
+  return  res.toFixed(2); 
+}
+
+function isNotValid(r, a, b){
+  if (a<0){
+    r.textContent = "Enter a valid non-negative subtotal.";
+    return true;
+  }
+  else if (b<0){
+    r.textContent = "Enter a valid non-negative tip percentage.";
+    return true;
+  }
+  return false;
+}
 
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -6,20 +23,11 @@ document.getElementById("form").addEventListener("submit", (e) => {
   const tipPercent = Number(document.getElementById("tip%").value);
   const result = document.getElementById("result");
 
-  if (subtotal < 0) {
-    result.textContent = "Enter a valid non-negative subtotal.";
+  if (isNotValid(result, subtotal,tipPercent)) {
     return;
   }
-  else if (tipPercent < 0) {
-    result.textContent = "Enter a valid non-negative tip percentage.";
-    return;
-  }
-
-  const tip = subtotal * (tipPercent / 100);
-  const total = subtotal + tip;
-  const res = total.toFixed(2);
-
+ 
   result.innerHTML = `
-    <div><strong>Total:</strong> $${res}</div>
+    <div><strong>Total:</strong> $${calculateTip(subtotal,tipPercent)}</div>
   `;
 });
